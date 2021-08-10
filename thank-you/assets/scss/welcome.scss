@@ -1,0 +1,213 @@
+.welcome {
+  display: flex;
+  flex-flow: column;
+  margin-top: 0;
+  min-height: 90%;
+  background-image: url("../img/intro.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../img/intro.jpg");
+  background-position: center;
+  background-size: cover;
+
+  @media screen and (min-width: 992px) {
+    padding: 0em 15% 0em;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-flow: column;
+    height: 50%;
+    margin: auto;
+    align-self: center;
+    padding-top: 2em;
+
+    @media screen and (min-width: 992px) {
+      flex-flow: row;
+    }
+  }
+
+  &__text,
+  &__video {
+    width: 100%;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+
+    @media screen and (min-width: 992px) {
+      width: 60%;
+    }
+
+    @media screen and (min-width: 540px) and (max-width: 768px) {
+      margin-bottom: 6em;
+    }
+
+    h1 {
+      padding: 1em;
+      color: $color_text-light;
+      line-height: 1.4;
+    }
+  }
+
+  &__video {
+    @media screen and (min-width: 992px) {
+      width: 40%;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+
+      min-height: 240px;
+
+      @media screen and (min-width: 540px) and (max-width: 768px) {
+        min-height: 310px;
+      }
+    }
+  }
+
+  .cta__container {
+    margin: auto;
+
+    @media screen and (max-width: 992px) {
+      display: none;
+    }
+
+    @media screen and (min-width: 992px) {
+      width: 100%;
+    }
+
+    @media screen and (min-width: 1500px) {
+      width: 60%;
+    }
+
+    .button {
+      @media screen and (min-width: 992px) {
+        width: 45%;
+      }
+    }
+  }
+}
+
+.cookie-law-notification {
+  z-index: 10000000;
+  opacity: 0;
+  transition: all 0.3s ease-in 0s;
+  position: fixed;
+  width: 100%;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  padding: 1em 5em;
+  border-radius: 0;
+  background: $background__white;
+  border: 1px solid transparent;
+  font-size: 15px;
+  box-shadow: rgba(23, 43, 99, 0.4) 0px 7px 28px;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row-reverse;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  @media screen and (max-width: 992px) {
+    border-radius: 0;
+    max-width: 100%;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    flex-flow: column-reverse;
+    padding: 1.15em 1em 1em;
+  }
+}
+
+.cookies-notification-on {
+  display: flex;
+  opacity: 1;
+  animation: cookieInfoUp 1s forwards;
+  transition: all 0.3s ease-in-out;
+
+  @keyframes cookieInfoUp {
+    0% {
+      transform: translate(-50%, 100%);
+      opacity: 0;
+    }
+
+    90% {
+      transform: translate(-50%, 0%);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translate(-50%, 0%);
+      opacity: 1;
+    }
+  }
+}
+
+.cookies-notification-off {
+  display: none;
+}
+
+.cookie-law-accepted {
+  transform: translate(-50%, 100%) !important;
+  opacity: 0 !important;
+}
+
+.cookie-law-notification a {
+  font-size: 15px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.cookie-law-notification p {
+  margin: 0;
+  color: $color_text-dark;
+  @include fluid-type($min_width, $max_width, 14px, 16px);
+
+  @media screen and (min-width: 992px) {
+    text-align: left;
+  }
+}
+
+.cookie-law-notification button {
+  align-self: center;
+  line-height: 40px;
+  height: 40px;
+  white-space: nowrap;
+  color: #fff;
+  background-color: $background__main-theme-dark;
+  border: none;
+  // opacity: 0.6;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: $font__main;
+  cursor: pointer;
+  border-radius: 50px;
+  margin: auto 2em;
+  transition: all 0.3s ease-in-out;
+  padding: 0 2em !important;
+  // box-shadow: $box-shadow_standard;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  @media screen and (max-width: 992px) {
+    margin: 1em auto auto;
+  }
+
+  &:hover {
+    background: darken($background__main-theme-dark, 5%);
+  }
+}
+.cookie-law-notification button:hover {
+  opacity: 1;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}

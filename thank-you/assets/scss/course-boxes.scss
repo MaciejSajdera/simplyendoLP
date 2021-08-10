@@ -1,0 +1,258 @@
+.courses {
+  $duration: 300ms;
+  $timing-fn: ease;
+  $turquoise: #1abc9c;
+
+  background-image: url("../img/dentist.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../img/dentist.jpg");
+  background-position: center;
+  background-size: cover;
+
+  .section-header {
+    @media screen and (min-width: 992px) {
+      padding: 4rem 4rem 2rem;
+    }
+
+    h2 {
+      color: $color_text-light;
+    }
+
+    .section-icon {
+      background-image: url("../img/books.svg");
+      height: 5em;
+      width: 5em;
+    }
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    // width: 300px;
+    margin: auto;
+
+    @media screen and (max-width: 992px) {
+      max-width: 599px;
+    }
+
+    @media screen and (min-width: 992px) {
+      width: 800px;
+    }
+  }
+
+  /* the important bits */
+  li {
+    perspective: 760px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .course-box--mobile {
+    pointer-events: none;
+
+    .info {
+      padding: 2em 1em;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
+
+  .info {
+    // hide-initial-state
+    transform: rotate3d(1, 0, 0, 90deg);
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    pointer-events: none;
+    background-color: transparentize($background__main-theme-dark, 0.2);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
+
+    @media screen and (min-width: 992px) {
+      position: absolute;
+      background-color: transparentize($background__main-theme-dark, 0);
+    }
+  }
+
+  .in-top .info {
+    transform-origin: 50% 0%;
+    animation: in-top $duration $timing-fn 0ms 1 forwards;
+  }
+  .in-right .info {
+    transform-origin: 100% 0%;
+    animation: in-right $duration $timing-fn 0ms 1 forwards;
+  }
+  .in-bottom .info {
+    transform-origin: 50% 100%;
+    animation: in-bottom $duration $timing-fn 0ms 1 forwards;
+  }
+  .in-left .info {
+    transform-origin: 0% 0%;
+    animation: in-left $duration $timing-fn 0ms 1 forwards;
+  }
+
+  .out-top .info {
+    transform-origin: 50% 0%;
+    animation: out-top $duration $timing-fn 0ms 1 forwards;
+  }
+  .out-right .info {
+    transform-origin: 100% 50%;
+    animation: out-right $duration $timing-fn 0ms 1 forwards;
+  }
+  .out-bottom .info {
+    transform-origin: 50% 100%;
+    animation: out-bottom $duration $timing-fn 0ms 1 forwards;
+  }
+  .out-left .info {
+    transform-origin: 0% 0%;
+    animation: out-left $duration $timing-fn 0ms 1 forwards;
+  }
+
+  @keyframes in-top {
+    from {
+      transform: rotate3d(-1, 0, 0, 90deg);
+    }
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+  }
+  @keyframes in-right {
+    from {
+      transform: rotate3d(0, -1, 0, 90deg);
+    }
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+  }
+  @keyframes in-bottom {
+    from {
+      transform: rotate3d(1, 0, 0, 90deg);
+    }
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+  }
+  @keyframes in-left {
+    from {
+      transform: rotate3d(0, 1, 0, 90deg);
+    }
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+  }
+
+  @keyframes out-top {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+    to {
+      transform: rotate3d(-1, 0, 0, 104deg);
+    }
+  }
+  @keyframes out-right {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+    to {
+      transform: rotate3d(0, -1, 0, 104deg);
+    }
+  }
+  @keyframes out-bottom {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+    to {
+      transform: rotate3d(1, 0, 0, 104deg);
+    }
+  }
+  @keyframes out-left {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+    to {
+      transform: rotate3d(0, 1, 0, 104deg);
+    }
+  }
+
+  /* you can ignore this ones */
+  ul {
+    padding: 0;
+
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+  li {
+    position: relative;
+    float: left;
+    // width: 300px;
+    height: 100%;
+    margin: 10px 0px;
+    padding: 0;
+    list-style: none;
+
+    @media screen and (min-width: 992px) {
+      width: 380px;
+      height: 380px;
+      margin: 10px 10px;
+    }
+
+    a {
+      display: inline-block;
+      vertical-align: top;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 22px;
+      color: transparentize(#fff, 0.1);
+    }
+
+    p {
+      @include fluid-type($min_width, $max_width, 18px, 18px);
+
+      color: $color_text-light;
+
+      @media screen and (min-width: 992px) {
+        line-height: 1.25;
+      }
+    }
+
+    .normal {
+      display: none;
+
+      @media screen and (min-width: 992px) {
+        width: 100%;
+        height: 100%;
+        background-color: transparentize($background__main-theme-light, 0.1);
+        color: $color_text-light;
+        box-shadow: inset 0 2px 20px darken($background__main-theme-light, 2);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include fluid-type($min_width, $max_width, 28px, 32px);
+      }
+    }
+  }
+}

@@ -1,0 +1,144 @@
+.button {
+  padding: 0.75em 1.25em;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+  font-weight: 600;
+  box-shadow: 0 2px 15px 5px rgb(0 0 0 / 10%), 0 2px 6px 0px rgb(0 0 0 / 5%);
+  line-height: 1.5;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  @include fluid-type($min_width, $max_width, 16px, 18px);
+
+  @media screen and (max-width: 992px) {
+    width: 100%;
+  }
+
+  svg {
+    margin-left: 1em;
+
+    path {
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  &__outline--white {
+    background: transparent;
+    color: $color_text-light;
+    border-color: $color_text-light;
+
+    svg {
+      path.svg-icon {
+        fill: $color_text-light;
+      }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: $color_text-light;
+      color: $background__main-theme-light;
+      border-color: $color_text-light;
+
+      svg {
+        path.svg-icon {
+          fill: $background__main-theme-light;
+        }
+      }
+    }
+  }
+
+  &__bg--dark {
+    background: $background__main-theme-dark;
+    color: $color_text-light;
+    border-color: $background__main-theme-dark;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($background__main-theme-dark, 5%);
+      border-color: darken($background__main-theme-dark, 5%);
+      color: $color_text-light;
+    }
+  }
+
+  &__outline--dark {
+    background: transparent;
+    color: $background__main-theme-dark;
+    border-color: $background__main-theme-dark;
+
+    svg {
+      path.svg-icon {
+        fill: $background__main-theme-dark;
+      }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($background__main-theme-dark, 5%);
+      border-color: darken($background__main-theme-dark, 5%);
+      color: $color_text-light;
+
+      svg {
+        path.svg-icon {
+          fill: $color_text-light;
+        }
+      }
+    }
+  }
+
+  &--send-form {
+    color: $color_text-light;
+    border-radius: 100rem;
+    padding: 0.5em 1.5em;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    @include fluid-type($min_width, $max_width, 18px, 20px);
+    transition: all 0.3s ease-in-out;
+    width: 60% !important;
+    margin: auto;
+
+    &:hover {
+      background: lighten($background__main-theme-dark, 5%);
+      border-color: lighten($background__main-theme-dark, 5%);
+    }
+  }
+}
+
+.call-us-text-desktop {
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+}
+
+.button--square {
+  border-radius: 0;
+}
+
+.plain-link {
+  @include fluid-type($min_width, $max_width, 24px, 28px);
+  display: block;
+  margin-top: 0.83em;
+
+  strong {
+    transition: 0.3s ease-in-out;
+  }
+
+  &:hover {
+    strong {
+      color: $background__main-theme-dark;
+    }
+  }
+}
+
+button[disabled="disabled"],
+button:disabled {
+  // your css rules
+  cursor: not-allowed;
+  opacity: 0.7;
+}

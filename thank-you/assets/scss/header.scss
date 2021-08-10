@@ -1,0 +1,128 @@
+.header {
+  background-color: $background__main-theme-light;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // flex-flow: column;
+  padding: 1em 1em;
+
+  @media screen and (min-width: 992px) {
+    padding: 1em 15%;
+    flex-flow: row;
+  }
+
+  &__left {
+    img {
+      padding: 0.95em;
+      height: 4em;
+      // margin-left: 1em;
+
+      @media screen and (min-width: 992px) {
+        padding: 1em;
+        height: 6em;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__right {
+    @media screen and (max-width: 992px) {
+      // margin-top: 1em;
+      // flex-flow: column;
+      // width: 50%;
+    }
+
+    display: flex;
+    align-items: center;
+    // flex-flow: column;
+
+    a:first-of-type {
+      @media screen and (max-width: 992px) {
+        // margin-bottom: 1em;
+        padding: 0.5em;
+        width: 4rem;
+        order: 2;
+        margin-left: 1em;
+
+        svg {
+          margin-left: 0;
+        }
+      }
+
+      @media screen and (min-width: 992px) {
+        margin-right: 2em;
+      }
+    }
+
+    a {
+      font-size: 11px;
+      height: 4em;
+
+      @media screen and (min-width: 992px) {
+        font-size: 16px;
+        height: auto;
+      }
+    }
+
+    // a {
+    //   width: 100%;
+    // }
+  }
+
+  .social-icons {
+    @media screen and (max-width: 992px) {
+      display: none;
+    }
+
+    position: absolute;
+    top: 10px;
+    right: 1em;
+
+    display: flex;
+    // flex-flow: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    // margin: 3em auto;
+
+    @media screen and (min-width: 992px) {
+      // width: 40%;
+    }
+
+    a {
+      display: block;
+      border-radius: 50px;
+      height: 2em;
+      line-height: 2em;
+      width: 2em;
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: all 0.3s ease-in-out;
+      margin-bottom: 10px;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .twitter {
+    background-color: #00aced;
+    background-image: url("../img/twitter.svg");
+    background-color: transparent;
+  }
+
+  .facebook {
+    background-color: #3b5998;
+    background-image: url("../img/facebook.svg");
+    background-color: transparent;
+  }
+
+  .instagram {
+    background-color: #305777;
+    background-image: url("../img/instagram.svg");
+    background-color: transparent;
+  }
+}
